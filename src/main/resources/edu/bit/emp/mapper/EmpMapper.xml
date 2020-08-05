@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.bit.emp.mapper.EmpMapper"> <!-- 인터페이스에 대한 패키지.자바명 -->
+	
+	<select id="getList" resultType="edu.bit.emp.vo.EmpVO">
+	<!-- id는 인터페이스 함수명과 같아야 한다 / resultType은 리턴해야하는 것,제네릭타입만 적어주면 됨(list안적어줘도됨)-->
+	<![CDATA[
+		select * from emp
+	]]>
+	</select>
+	
+	<select id="getList2" resultType="edu.bit.emp.vo.jqueryVO">
+	<!-- id는 인터페이스 함수명과 같아야 한다 / resultType은 리턴해야하는 것,제네릭타입만 적어주면 됨(list안적어줘도됨)-->
+	<![CDATA[
+		select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent from mvc_board order by bGroup desc, bStep asc
+	]]>
+	</select>
+
+	
+</mapper>	
