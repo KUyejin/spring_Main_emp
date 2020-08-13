@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import edu.bit.emp.mapper.EmpMapper;
+import edu.bit.emp.vo.DeptEmpVO;
 import edu.bit.emp.vo.EmpVO;
 import edu.bit.emp.vo.jqueryVO;
 import lombok.AllArgsConstructor;
@@ -28,7 +29,9 @@ public class EmpServiceImpl implements EmpService {
 		return empMapper.getList2();
 	}
 
-    
-
+	@Override
+	public DeptEmpVO deptEmpList(int deptno) {
+		return empMapper.selectDeptEmp(deptno);
+	}
 
 }

@@ -19,7 +19,14 @@
 	<resources mapping="/js/**" location="/resources/eshopper/js/" /> 
 	<!--  /resources앞에는 webapp ->유저한테 들어나는 정보기 때문에 주소치면 바로 들어와진다-->
 	<!-- webapp: 유저한테 공개(정적처리하는곳) / WEB-INF: 유저한테 보여서는 안되는 것들-->
+	
+	<resources mapping="/index/css/**" location="/resources/eshopper/css/" /> 
+	<resources mapping="/index/fonts/**" location="/resources/eshopper/fonts/" /> 
+	<resources mapping="/index/images/**" location="/resources/eshopper/images/" /> 
+	<resources mapping="/index/js/**" location="/resources/eshopper/js/" /> 
 		
+	
+	
 	<resources mapping="/resources/**" location="/resources/" />
 
 

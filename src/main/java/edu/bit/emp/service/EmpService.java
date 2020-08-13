@@ -2,6 +2,7 @@ package edu.bit.emp.service;
 
 import java.util.List;
 
+import edu.bit.emp.vo.DeptEmpVO;
 import edu.bit.emp.vo.EmpVO;
 import edu.bit.emp.vo.jqueryVO;
 
@@ -11,6 +12,6 @@ public interface EmpService {
 
 	List<jqueryVO> jqueryList();
 
-
+	DeptEmpVO deptEmpList(int deptno); 
 
 }

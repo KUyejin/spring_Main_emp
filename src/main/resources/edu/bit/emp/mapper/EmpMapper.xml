@@ -17,6 +17,44 @@
 		select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent from mvc_board order by bGroup desc, bStep asc
 	]]>
 	</select>
+	
+	
+	<!-- EmpVO를 맵핑시켜준다 - resultMap : 자바문법과 db문법 연결 -->
+	<resultMap id ="Emp" type= "edu.bit.emp.vo.EmpVO"> 
+	    <id property = "empno" column = "empno"/> 
+	    <!-- column는 db에있는 실제empno값을 내가가지고 있는 VO클래스의 empno변수명로 맵핑시켜주겠다 라는 것  -->
+	    <!--  column은 실제값   property는 변수명-->
+	    <!-- id를 쓰는 이유는 유일한 키이기 때문이다 -->
+	    <result property = "empno" column = "empno"/>
+	    <result property = "ename" column = "ename"/>
+	    <result property = "job" column = "job"/>
+	    <result property = "mgr" column = "mgr"/>
+	    <result property = "hiredate" column = "hiredate"/>
+	    <result property = "sal" column = "sal"/>
+	    <result property = "comm" column = "comm"/>
+	    <result property = "deptno" column = "deptno"/>
+	    
+	</resultMap>
+	
+	<!-- DeptEmpVO를 맵핑시켜준다  -->
+	<resultMap id ="DeptEmp" type= "edu.bit.emp.vo.DeptEmpVO"> 
+	    <id property = "deptno" column = "deptno"/> 
+	    <result property = "dname" column = "dname"/>
+	    <result property = "loc" column = "loc"/>
+	    
+	    <collection property="empList" javaType="java.util.ArrayList" resultMap="Emp"/>
+	    <!-- List<EmpVO> empList맵핑 /EMP를 ArraayList로 끌고와서 empList에 넣는다-->
+	    <!-- 일대일 관계일때: <association property=""></association>-->
+	    <!-- 일대엔 관계일때: <collection property=""></collection>-->
+	</resultMap>
+	
+	
+	<!-- 실행한 결과를 DeptEmp에 맞춰라-->
+	<select id="selectDeptEmp" parameterType="int" resultMap="DeptEmp">		
+	<![CDATA[		
+        select * from emp e,dept d where e.deptno= d.deptno and d.deptno = #{deptno} 
+	]]>
+	</select>
 
 	
 </mapper>	
